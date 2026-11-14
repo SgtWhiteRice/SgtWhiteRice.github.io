@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SgtWhiteRice</title>
+  <meta name="description" content="SgtWhiteRice's room: an interactive 3D personal site.">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <canvas id="scene" aria-hidden="true"></canvas>
+
+  <header class="top">
+    <a class="brand" href="#" id="brand">SgtWhiteRice</a>
+    <nav aria-label="Sections">
+      <button data-open="about">About</button>
+      <button data-open="projects">Projects</button>
+      <button data-open="contact">Contact</button>
+      <button id="daynight" aria-pressed="false" aria-label="Switch between night and day">☾ night</button>
+      <button id="sound" aria-pressed="false" aria-label="Toggle sound">♪ off</button>
+    </nav>
+  </header>
+
+  <p class="help" id="help">Drag to circle the room. Click a screen, the board, the bed, the pets, the fish tank, the toy car or the robot vacuum.</p>
+  <div class="tip" id="tip" hidden></div>
+
+  <aside class="panel" id="panel" aria-live="polite" hidden>
+    <button class="close" id="close" aria-label="Close panel">&times;</button>
+    <div id="panel-body"></div>
+  </aside>
+
+  <div class="loader" id="loader">
+    <div class="loader-box">
+      <div class="loader-name">SGTWHITERICE</div>
+      <div class="bar"><span id="bar"></span></div>
+      <div class="loader-msg" id="loader-msg">Booting up the room…</div>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "_note": "Everything on the site reads from this file. Edit the text, save, refresh. Entries marked PLACEHOLDER are stand-ins.",
+  "name": "SgtWhiteRice",
+  "tagline": "Builder. Reseller. Trader. PLACEHOLDER tagline.",
+  "_notesUrl": "Web address of the guest-notes service (see notes-service/Code.gs). Leave blank to use the site's own server.",
+  "notesUrl": "",
+  "about": {
+    "title": "About",
+    "hint": "Main monitor",
+    "paragraphs": [
+      "PLACEHOLDER: Two or three sentences about who you are and what you do. Write it the way you would say it out loud.",
+      "PLACEHOLDER: What you are working on right now, and what you want people to reach out to you about."
+    ],
+    "facts": [
+      ["Based in", "California"],
+      ["Currently", "PLACEHOLDER current focus"],
+      ["Setup", "Windows 11 + RTX 2070 Super"]
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "hint": "Side monitor",
+    "items": [
+      { "title": "Live Selling", "blurb": "PLACEHOLDER: one line on the live-commerce work.", "tags": ["Whatnot", "TikTok Shop"], "link": "" },
+      { "title": "Online Arbitrage", "blurb": "PLACEHOLDER: one line on the sourcing and reselling pipeline.", "tags": ["Amazon", "Sourcing"], "link": "" },
+      { "title": "Agentic Trader", "blurb": "PLACEHOLDER: one line on the AI-assisted trading project.", "tags": ["Python", "AI agents"], "link": "" },
+      { "title": "Content Factory", "blurb": "PLACEHOLDER: one line on the short-form video pipeline.", "tags": ["Video", "Automation"], "link": "" }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "hint": "Wall board",
+    "intro": "PLACEHOLDER: one line on the best way to reach you.",
+    "links": [
+      { "label": "Email", "value": "you@example.com", "href": "mailto:you@example.com" },
+      { "label": "Instagram", "value": "@yourhandle", "href": "" },
+      { "label": "YouTube", "value": "@yourchannel", "href": "" }
+    ]
+  }
+}
