@@ -3,7 +3,7 @@
   "name": "SgtWhiteRice",
   "tagline": "Builder. Reseller. Trader. PLACEHOLDER tagline.",
   "_notesUrl": "Web address of the guest-notes service (see notes-service/Code.gs). Leave blank to use the site's own server.",
-  "notesUrl": "",
+  "notesUrl": "https://script.google.com/macros/s/AKfycbzcCVL1Xiva2Mefr9nSq4bK0MppwtBXhzNkinSKMwaFJBg9itOBGGVNnWQ4CKtITwkviQ/exec",
   "about": {
     "title": "About",
     "hint": "Main monitor",
