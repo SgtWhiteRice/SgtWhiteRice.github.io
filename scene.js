@@ -1009,7 +1009,9 @@ export async function initScene(api) {
     if (!root) return null;
     const ud = root.userData, poses = JSON.parse(ud.poses), gaitDef = JSON.parse(ud.gait), furDef = JSON.parse(ud.fur);
     const bones = [];
-    root.traverse((b) => { if (b.isBone) { b.userData.q0 = b.quaternion.clone(); bones.push(b); } });
+    // Both animals use the same bone names, and the loader renames the second animal's ("thighL" becomes "thighL_1"),
+    // so the poses are looked up by the name the file gave each bone, not by the name the loader ended up with.
+    root.traverse((b) => { if (b.isBone) { b.userData.q0 = b.quaternion.clone(); b.userData.bone = b.userData.name || b.name.replace(/_\d+$/, ''); bones.push(b); } });
     const skins = [];
     root.traverse((m) => { if (m.isSkinnedMesh) skins.push(m); });
     skins.forEach((m) => {
@@ -1078,7 +1080,7 @@ export async function initScene(api) {
     root.position.set(pet.x, pet.z - P.drop + hopY + 0.006 * g * Math.abs(Math.sin(pet.phase * 2)), -pet.y);
     root.rotation.set(0, pet.heading, 0);
     for (const b of pet.bones) {
-      const n = b.name, sided = /[LR]$/.test(n), base = sided ? n.slice(0, -1) : n, right = sided && n.endsWith('R');
+      const n = b.userData.bone, sided = /[LR]$/.test(n), base = sided ? n.slice(0, -1) : n, right = sided && n.endsWith('R');
       let a = P[n] ?? P[base] ?? 0, yaw = 0;
       if (g > 0.001 && sided) { // the walk: diagonal legs move together, and a leg folds while it swings forward
         const front = base === 'arm' || base === 'fore' || base === 'hand';
@@ -1090,6 +1092,7 @@ export async function initScene(api) {
       else if (base === 'spine') yaw = 0.07 * g * Math.sin(pet.phase);
       else if (base === 'hips') yaw = -0.05 * g * Math.sin(pet.phase);
       else if (n.startsWith('tail')) { const k = +n.slice(4); yaw = dog ? (0.14 + 0.2 * rest) * Math.sin(t * (6 + 5 * rest) + pet.seed - k * 0.5) : 0.16 * Math.sin(t * 1.6 + pet.seed - k * 0.7); a += 0.05 * Math.sin(t * 0.9 + k + pet.seed); }
+      if (sided) yaw = (right ? 1 : -1) * (P[base + 'Out'] ?? 0); // a pose can turn a whole leg outward at its top joint ("thighOut")
       b.quaternion.copy(b.userData.q0).multiply(qTmp.setFromAxisAngle(AXIS_X, a));
       if (yaw) b.quaternion.multiply(qTmp.setFromAxisAngle(AXIS_Z, yaw));
     }
@@ -1146,7 +1149,10 @@ export async function initScene(api) {
     } else if (a.type === 'chase') { // the dog runs after the toy car, just inside its lap; once the car has parked it trots over, sits and barks at it
       const run = rari && rari.state === 'run';
       let tx = FLOOR.e[0], ty = FLOOR.e[1], keep = 0.05, sp = 0.85;
-      if (run) { const ix = LAP_MID[0] - rari.x, iy = LAP_MID[1] - rari.y, il = Math.hypot(ix, iy) || 1; tx = rari.x + (ix / il) * 0.38; ty = rari.y + (iy / il) * 0.38; keep = 0.3; sp = 1.3; }
+      if (run) { // it runs beside the car's tail, on the side nearer the middle of the room. Never in front: the car stops for whatever is in its way, and the two would stand there nose to nose
+        const fx = Math.sin(rari.heading), fy = -Math.cos(rari.heading), side = (LAP_MID[0] - rari.x) * -fy + (LAP_MID[1] - rari.y) * fx < 0 ? -1 : 1;
+        tx = rari.x - fy * side * 0.42 - fx * 0.12; ty = rari.y + fx * side * 0.42 - fy * 0.12; keep = 0.2; sp = 1.3;
+      }
       const dx = tx - pet.x, dy = ty - pet.y, dist = Math.hypot(dx, dy);
       if (dist > keep) {
         moving = true;
