@@ -1,19 +1,19 @@
 {
-  "_note": "Everything on the site reads from this file. Edit the text, save, refresh. Entries marked PLACEHOLDER are stand-ins.",
+  "_note": "Everything on the site reads from this file. Edit the text, save, refresh.",
   "name": "SgtWhiteRice",
-  "tagline": "Builder. Reseller. Trader. PLACEHOLDER tagline.",
+  "tagline": "Welcome to my room, see what I'm building and connect with me!",
   "_notesUrl": "Web address of the guest-notes service (see notes-service/Code.gs). Leave blank to use the site's own server.",
   "notesUrl": "https://script.google.com/macros/s/AKfycbzcCVL1Xiva2Mefr9nSq4bK0MppwtBXhzNkinSKMwaFJBg9itOBGGVNnWQ4CKtITwkviQ/exec",
   "about": {
     "title": "About",
     "hint": "Main monitor",
     "paragraphs": [
-      "PLACEHOLDER: Two or three sentences about who you are and what you do. Write it the way you would say it out loud.",
-      "PLACEHOLDER: What you are working on right now, and what you want people to reach out to you about."
+      "I go by Nik, I currently day trade futures full time and like to build things with AI in my free time. My hobbies include playing pickleball and trying to catch fish to catch and cook.",
+      "Right now I am building many things for all business problems, connect with me!"
     ],
     "facts": [
       ["Based in", "California"],
-      ["Currently", "PLACEHOLDER current focus"],
+      ["Currently", "Scaling Whatnot Live Streams + Building things with AI"],
       ["Setup", "Windows 11 + RTX 2070 Super"]
     ]
   },
@@ -21,20 +21,20 @@
     "title": "Projects",
     "hint": "Side monitor",
     "items": [
-      { "title": "Live Selling", "blurb": "PLACEHOLDER: one line on the live-commerce work.", "tags": ["Whatnot", "TikTok Shop"], "link": "" },
-      { "title": "Online Arbitrage", "blurb": "PLACEHOLDER: one line on the sourcing and reselling pipeline.", "tags": ["Amazon", "Sourcing"], "link": "" },
-      { "title": "Agentic Trader", "blurb": "PLACEHOLDER: one line on the AI-assisted trading project.", "tags": ["Python", "AI agents"], "link": "" },
-      { "title": "Content Factory", "blurb": "PLACEHOLDER: one line on the short-form video pipeline.", "tags": ["Video", "Automation"], "link": "" }
+      { "title": "Live Selling", "blurb": "Watch me sell my AMZN returns for the low", "tags": ["Whatnot", "TikTok Shop"], "link": "" },
+      { "title": "Online Arbitrage", "blurb": "Building an automatic sourcing agent replacing the conventional VA Route", "tags": ["Amazon", "Sourcing"], "link": "" },
+      { "title": "Agentic Trader", "blurb": "Claude & Me investing", "tags": ["Python", "AI agents"], "link": "" },
+      { "title": "Content Factory", "blurb": "Claude is building a Blender + short form content editing pipeline", "tags": ["Video", "Automation"], "link": "" }
     ]
   },
   "contact": {
     "title": "Contact",
     "hint": "Wall board",
-    "intro": "PLACEHOLDER: one line on the best way to reach you.",
+    "intro": "Email is the fastest, Inbox is scanned every hour.",
     "links": [
-      { "label": "Email", "value": "you@example.com", "href": "mailto:you@example.com" },
-      { "label": "Instagram", "value": "@yourhandle", "href": "" },
-      { "label": "YouTube", "value": "@yourchannel", "href": "" }
+      { "label": "Email", "value": "swrsmanagement@gmail.com", "href": "mailto:swrsmanagement@gmail.com" },
+      { "label": "Instagram", "value": "@nikwithaknotac", "href": "https://www.instagram.com/nikwithaknotac/" },
+      { "label": "X", "value": "@nikwithaknotac", "href": "https://x.com/nikwithaknotac" }
     ]
   }
 }
